@@ -1,0 +1,301 @@
+:root {
+  --bg: #f0f2f4;
+  --card: #ffffff;
+  --ink: #26221e;
+  --muted: #6e675c;
+  --link: #2b4c7e;
+  --hairline: #e3e6ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.page {
+  width: min(1080px, calc(100% - 40px));
+  margin: 36px auto;
+  padding: 44px 64px 28px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  box-shadow: 0 10px 30px rgba(38, 45, 58, 0.08);
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 22px;
+}
+
+.portrait {
+  width: 176px;
+  height: 220px;
+  flex: 0 0 176px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+}
+
+.intro-text {
+  flex: 0 1 auto;
+}
+
+h1 {
+  margin: 2px 0 10px;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid #aaa;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+h2 {
+  margin: 26px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+h3 {
+  margin: 16px 0 7px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 11px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.me {
+  font-weight: 700;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+
+.links a {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.links img {
+  display: block;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter 0.15s, opacity 0.15s;
+}
+
+.links a:hover img,
+.links a:focus-visible img {
+  filter: none;
+  opacity: 1;
+}
+
+.cv-link a {
+  display: inline-block;
+  padding: 3px 12px;
+  border: 1px solid var(--link);
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.cv-link a:hover,
+.cv-link a:focus-visible {
+  background: var(--link);
+  color: #fff;
+  text-decoration: none;
+}
+
+ul {
+  margin: 4px 0 12px;
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 6px;
+  padding-left: 3px;
+}
+
+ul li::marker {
+  color: var(--muted);
+}
+
+.tight li {
+  margin-bottom: 2px;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 2.5em;
+  row-gap: 6px;
+  margin-bottom: 12px;
+}
+
+.award-grid h3 {
+  grid-column: 1 / -1;
+  margin: 10px 0 1px;
+}
+
+.award-grid h3:first-child {
+  margin-top: 16px;
+}
+
+.award-list {
+  display: contents;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.award-list li {
+  display: contents;
+}
+
+.award-list b {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.pub-list {
+  list-style: none;
+  margin: 4px 0 14px;
+  padding-left: 0;
+}
+
+.pub-list li {
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 9px;
+}
+
+.pub-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-conf {
+  counter-reset: conf 7;
+}
+
+.pub-conf li::before {
+  content: "[C" counter(conf) "]";
+  counter-increment: conf -1;
+}
+
+.pub-jour {
+  counter-reset: jour 2;
+}
+
+.pub-jour li::before {
+  content: "[J" counter(jour) "]";
+  counter-increment: jour -1;
+}
+
+.venue {
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 26px 20px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .intro {
+    gap: 20px;
+  }
+
+  .award-grid {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .award-list b {
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  .portrait {
+    width: 128px;
+    height: 160px;
+    flex-basis: 128px;
+  }
+}
+
+@media (max-width: 500px) {
+  .intro {
+    flex-direction: column;
+  }
+
+  .portrait {
+    width: 150px;
+    height: 188px;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+}
